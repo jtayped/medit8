@@ -9,5 +9,6 @@ body {
 
 :root {
   --main-color: #282c34;
+  --filler-color: #3b8496;
   --accent-color: white;
 }

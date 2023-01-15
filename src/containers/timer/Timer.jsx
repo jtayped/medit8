@@ -7,18 +7,19 @@ const Timer = (props) => {
   const loopsTillBreathHold = props.loopsTillBreathHold;
   const breathHoldTime = props.breathHoldTime;
 
-  const [start, setStart] = useState(true);
+  const [start, setStart] = useState(false);
   const [time, setTime] = useState(inhaleTime);
-  const [inhale, setInhale] = useState(true);
   const [percentage, setPercentage] = useState(100);
   const [loops, setLoops] = useState(0);
+
+  const [phase, setPhase] = useState("inhale");
 
   function reset() {
     setStart(false);
     setTime(inhaleTime);
-    setInhale(true);
-    setPercentage(100);
+    setPercentage(0);
     setLoops(0);
+    setPhase("inhale");
   }
 
   useEffect(() => {
@@ -27,25 +28,27 @@ const Timer = (props) => {
       interval = setInterval(() => {
         if (time > 0) {
           setTime((time) => time - 1);
-          if (inhale) {
+          if (phase === "inhale") {
             setPercentage(100 - (time / inhaleTime) * 100);
-          } else if (!inhale) {
+          } else if (phase === "exhale") {
             setPercentage((time / exhaleTime) * 100);
-          } else {
+          } else if (phase === "hold") {
             setPercentage((time / breathHoldTime) * 100);
           }
         } else {
-          if (loops >= loopsTillBreathHold) {
-            setTime(breathHoldTime);
-            setLoops(0);
-          } else {
-            setInhale(!inhale);
-            if (inhale) {
+          if (loopsTillBreathHold > loops) {
+            if (phase === "inhale") {
               setTime(exhaleTime);
+              setPhase("exhale");
               setLoops((loops) => loops + 1);
-            } else {
+            } else if (phase === "exhale" || phase === "hold") {
               setTime(inhaleTime);
+              setPhase("inhale");
             }
+          } else {
+            setTime(breathHoldTime);
+            setPhase("hold");
+            setLoops(0);
           }
         }
       }, 1);
@@ -53,8 +56,8 @@ const Timer = (props) => {
     return () => clearInterval(interval);
   }, [
     start,
+    phase,
     time,
-    inhale,
     loops,
     breathHoldTime,
     exhaleTime,
@@ -65,22 +68,46 @@ const Timer = (props) => {
   return (
     <div className="main">
       {!start ? (
-        <button onClick={() => setStart(true)}>Start</button>
+        <header className="start-menu">
+          <h1>Medit8</h1>
+          <p>
+            Unlock your full potential with our meditation app. Find peace,
+            clarity and inner strength to improve every aspect of your life.
+            Experience the benefits of mindfulness and develop a powerful
+            mindset to achieve your goals.
+          </p>
+          <button onClick={() => setStart(true)} className="start">
+            Start
+          </button>
+        </header>
       ) : (
         <div className="meditation-main">
           <div className="details">
-            <h1>{inhale ? "Inhale" : "Exhale"}</h1>
-            <p>{loops}</p>
-            <button onClick={() => reset()}>Reset</button>
+            <h2>
+              {phase === "inhale"
+                ? "Inhale"
+                : phase === "hold"
+                ? "Hold"
+                : "Exhale"}
+            </h2>
           </div>
 
           <div
             className="breath-circle"
             style={{
-              scale: `${percentage + 5}%`,
+              transform: `scale(${percentage / 100})`,
               opacity: `${percentage + 25}%`,
             }}
           />
+          <div
+            className="breath-circle-ring"
+            style={{
+              opacity: `${percentage - 50}%`,
+            }}
+          />
+          <button onClick={() => reset()} className="reset">
+            Reset
+          </button>
         </div>
       )}
     </div>

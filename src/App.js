@@ -6,10 +6,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Timer
-          inhaleTime={1000}
-          exhaleTime={750}
-          loopsTillBreathHold={3}
-          breathHoldTime={10000}
+          inhaleTime={750}
+          exhaleTime={500}
+          loopsTillBreathHold={25}
+          breathHoldTime={90000}
         />
       </header>
     </div>
