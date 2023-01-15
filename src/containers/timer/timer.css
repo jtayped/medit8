@@ -20,6 +20,10 @@
   background-color: var(--filler-color);
 }
 
+.breath-circle {
+    filter: drop-shadow(rgba(0, 0, 0, 0.025) 0px 0px 50px);
+}
+
 .breath-circle-ring {
   border: 1px solid var(--accent-color);
   background-color: transparent;

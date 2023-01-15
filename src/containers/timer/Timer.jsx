@@ -102,7 +102,7 @@ const Timer = (props) => {
           <div
             className="breath-circle-ring"
             style={{
-              opacity: `${percentage - 50}%`,
+              opacity: `${percentage - 75}%`,
             }}
           />
           <button onClick={() => reset()} className="reset">
