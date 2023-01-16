@@ -21,7 +21,7 @@
 }
 
 .breath-circle {
-    filter: drop-shadow(rgba(0, 0, 0, 0.025) 0px 0px 50px);
+  filter: drop-shadow(rgba(0, 0, 0, 0.025) 0px 0px 50px);
 }
 
 .breath-circle-ring {
@@ -61,7 +61,11 @@
 
 .start-menu h1 {
   font-size: 10rem;
-  background: linear-gradient(25deg, rgba(59, 132, 150, 1) 0%, rgba(59, 132, 150, 0.4) 100%);
+  background: linear-gradient(
+    25deg,
+    rgba(59, 132, 150, 1) 0%,
+    rgba(59, 132, 150, 0.4) 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -75,10 +79,13 @@
 
 .start-menu button {
   margin-top: 1rem;
+  background: linear-gradient(25deg, transparent -10%, var(--filler-color) 50%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 @media screen and (max-width: 650px) {
-    .start-menu h1 {
-        font-size: 6rem;
-    }
+  .start-menu h1 {
+    font-size: 6rem;
+  }
 }

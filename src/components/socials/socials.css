@@ -5,6 +5,11 @@
 
 .socials li {
   list-style: none;
+  transition: 0.15s;
+}
+
+.socials li:hover {
+  scale: 1.05;
 }
 
 .socials li a img {

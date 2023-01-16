@@ -1,5 +1,6 @@
 import "./timer.css";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Timer = (props) => {
   const inhaleTime = props.inhaleTime;
@@ -65,10 +66,28 @@ const Timer = (props) => {
     loopsTillBreathHold,
   ]);
 
+  const fadeIn = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+    },
+    transition: {
+      duration: 1,
+    },
+  };
+
   return (
     <div className="main">
       {!start ? (
-        <header className="start-menu">
+        <motion.header
+          className="start-menu"
+          variants={fadeIn}
+          initial="initial"
+          animate="animate"
+          transition="transition"
+        >
           <h1>Medit8</h1>
           <p>
             Unlock your full potential with our meditation app. Find peace,
@@ -79,9 +98,15 @@ const Timer = (props) => {
           <button onClick={() => setStart(true)} className="start">
             Start
           </button>
-        </header>
+        </motion.header>
       ) : (
-        <div className="meditation-main">
+        <motion.div
+          className="meditation-main"
+          variants={fadeIn}
+          initial="initial"
+          animate="animate"
+          transition="transition"
+        >
           <div className="details">
             <h2>
               {phase === "inhale"
@@ -108,7 +133,7 @@ const Timer = (props) => {
           <button onClick={() => reset()} className="reset">
             Reset
           </button>
-        </div>
+        </motion.div>
       )}
     </div>
   );
