@@ -20,7 +20,7 @@ const Socials = () => {
   return (
     <ul className="socials">
       {items.map((item) => (
-        <li>
+        <li className={item.name}>
           <a href={item.link} target="_blank" rel="noopener noreferrer">
             <img src={item.icon} alt={item.name} />
           </a>

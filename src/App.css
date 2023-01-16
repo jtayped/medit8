@@ -38,6 +38,10 @@ a {
   right: 3em;
 }
 
+.GitHub {
+  filter: invert(90%);
+}
+
 @media screen and (max-width: 1000px) {
   .info {
     top: 1.5em;
