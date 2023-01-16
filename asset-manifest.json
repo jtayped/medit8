@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/meditation-app/static/css/main.4e23f532.css",
-    "main.js": "/meditation-app/static/js/main.69ff186e.js",
-    "static/js/787.6c3af52a.chunk.js": "/meditation-app/static/js/787.6c3af52a.chunk.js",
-    "index.html": "/meditation-app/index.html",
-    "main.4e23f532.css.map": "/meditation-app/static/css/main.4e23f532.css.map",
-    "main.69ff186e.js.map": "/meditation-app/static/js/main.69ff186e.js.map",
-    "787.6c3af52a.chunk.js.map": "/meditation-app/static/js/787.6c3af52a.chunk.js.map"
+    "main.css": "/medit8/static/css/main.4e23f532.css",
+    "main.js": "/medit8/static/js/main.740a3234.js",
+    "static/js/787.058638a1.chunk.js": "/medit8/static/js/787.058638a1.chunk.js",
+    "index.html": "/medit8/index.html",
+    "main.4e23f532.css.map": "/medit8/static/css/main.4e23f532.css.map",
+    "main.740a3234.js.map": "/medit8/static/js/main.740a3234.js.map",
+    "787.058638a1.chunk.js.map": "/medit8/static/js/787.058638a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e23f532.css",
-    "static/js/main.69ff186e.js"
+    "static/js/main.740a3234.js"
   ]
 }
