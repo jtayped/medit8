@@ -1,0 +1,12 @@
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.socials li {
+  list-style: none;
+}
+
+.socials li a img {
+  height: 5em;
+}

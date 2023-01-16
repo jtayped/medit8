@@ -32,9 +32,19 @@ a {
   right: 3em;
 }
 
+.socials {
+  position: absolute;
+  bottom: 3em;
+  right: 3em;
+}
+
 @media screen and (max-width: 1000px) {
   .info {
     top: 1.5em;
+    right: 1.5em;
+  }
+  .socials {
+    bottom: 1.5em;
     right: 1.5em;
   }
 }

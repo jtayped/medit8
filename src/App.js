@@ -1,6 +1,6 @@
 import "./App.css";
 import { Timer } from "./containers/index";
-import { Info } from "./components/index";
+import { Info, Socials } from "./components/index";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
           breathHoldTime={90000}
         />
         <Info />
+        <Socials />
       </header>
     </div>
   );
